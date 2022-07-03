@@ -37,27 +37,27 @@ def PrintNum(n: str):
             print(*numbers[int(n[3])][i])
 
 
-def ChangeSymb(ch: str):
+def ChangeSymb():
+    symb = input('Enter symbol: ')[0]
     for i in range(len(numbers)):
         for j in range(len(numbers[i])):
             for k in range(len(numbers[i][j])):
                 if numbers[i][j][k] != ' ':
-                    numbers[i][j][k] = ch
+                    numbers[i][j][k] = symb
 
 
 def main():
       num = EnterNum()
+      ChangeSymb()
       PrintNum(num)
-      continue_flag = True
-      while continue_flag:
+      
+      question = input("Do u like to continue? (Y/n): ")
+      while question.upper() == 'Y':
+          num = EnterNum()
+          ChangeSymb()
+          PrintNum(num)
+
           question = input("Do u like to continue? (Y/n): ")
-          if question.lower() == 'y':
-              num = EnterNum()
-              symb = input('Enter symbol: ')[0]
-              ChangeSymb(symb)
-              PrintNum(num)
-          else:
-              continue_flag = False
 
 
 if __name__ == '__main__':
