@@ -38,12 +38,14 @@ def PrintNum(n: str):
 
 
 def ChangeSymb():
-    symb = input('Enter symbol: ')[0]
+    symb = input('Enter symbol: ')
+    if symb == '':
+        symb = '*'
     for i in range(len(numbers)):
         for j in range(len(numbers[i])):
             for k in range(len(numbers[i][j])):
                 if numbers[i][j][k] != ' ':
-                    numbers[i][j][k] = symb
+                    numbers[i][j][k] = symb[0]
 
 
 def main():
